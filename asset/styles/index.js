@@ -1,12 +1,12 @@
 let frame = 1
 let rolls = []
 
-document.getElementById('roll-btn').addEventListener('click', function() {
+document.getElementById('roll-btn').addEventListener('click', function () {
   const pinsRemaining = 10 - rolls.reduce((a, b) => a + b, 0)
   const roll = Math.floor(Math.random() * (pinsRemaining + 1))
   rolls.push(roll)
 
-  const frameScore = calculateFrameScore(rolls);
+  const frameScore = calculateFrameScore(rolls)
   document.getElementById(`frame${frame}-score`).textContent = frameScore
 
   if (rolls.length === 2 || roll === 10) {
@@ -19,7 +19,7 @@ document.getElementById('roll-btn').addEventListener('click', function() {
   document.getElementById('total-score').textContent = totalScore
 })
 
-function calculateFrameScore(rolls) {
+function calculateFrameScore (rolls) {
   const frameTotal = rolls.reduce((a, b) => a + b, 0)
   if (frameTotal === 10 && rolls.length === 2) {
     return 'Spare'
@@ -30,7 +30,7 @@ function calculateFrameScore(rolls) {
   }
 }
 
-function calculateTotalScore() {
+function calculateTotalScore () {
   let total = 0
   for (let i = 1; i <= frame; i++) {
     const score = document.getElementById(`frame${i}-score`).textContent
